@@ -1,0 +1,19 @@
+1. What is the difference between truncate, delete, drop?
+Truncate: It is a DML command here we cannot use 'where' clause (conditions) with truncate it delete whole data (record) inside table except schema
+Delete:It is a DDL command  we can use 'where' caluse with delete to apply any condition also we can use direct delete whole data except scheema
+drop: It is a DDL command it drop evrything  data as well as structure
+
+2. What are alias in MySQL?
+Alias we use to give temporary name  to column, table to make it more readable it work till quering
+
+3. How do you display even rows of the any table?
+select * from table_name where id%2=0; 
+
+4. How can you remove duplicates from a table(distinct and other way)
+select distinct column_name from bable;
+select column_name from table group by column_name ;
+select column_name from table where count(column_name)=1;
+
+5. How you can find 5th max salary?(Do it by all 3 ways)
+select salary from table order by salary desc limit 4,1;
+with tamp as(select salary, dense_rank() over(order by salary desc) as ranks from table) select * from tamp where ranks=5;
